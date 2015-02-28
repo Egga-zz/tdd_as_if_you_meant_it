@@ -2,7 +2,7 @@ import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class ThingTest {
+public class ThingTestAssertJ {
 
     @Test
     public void itName() {
