@@ -18,14 +18,15 @@ It might work with other setups after slight adjustments, but that is not tested
 
 Open the directory in Idea.
 
-# Production Libraries Available from the get-go
-- Lombok 1.14.8
-- Apache Commons Lang 1.3.2
-- Guava 18.0
 
-# Test Libraries Available from the get-go
-- JUnit 4.11
+# Test Libraries Available from the Get-Go
+- JUnit 4.12
 - Mockito 1.10.19
 - Hamcrest 1.3
 - AssertJ 1.7.1
 - Lambda Behave 0.3
+
+# Production Libraries Available from the Get-Go
+- Lombok 1.16.2
+- Apache Commons Lang 3.3.2
+- Guava 18.0
