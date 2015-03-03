@@ -15,7 +15,7 @@ public class ThingTestMockito {
     private Thing thing;
 
     @Test
-    public void itName() {
+    public void it_should_fail() {
         when(thing.callForAction()).thenReturn("Failed.");
         thing.callForAction();
         verify(thing).callForAction();

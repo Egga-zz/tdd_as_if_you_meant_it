@@ -10,7 +10,7 @@ import static org.hamcrest.Matchers.is;
 public class ThingTestHamcrest {
 
     @Test
-    public void itName() {
+    public void it_should_call_for_action() {
         Thing thing = new Thing();
         String value = thing.callForAction();
         assertThat(value, is(equalTo("Done.")));
