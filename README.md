@@ -6,7 +6,7 @@ A blank project, ready to start immediately. Useful for katas or experiments to 
 - Git
 - Java 1.8
 - Gradle 2.2
-- IntelliJ Idea
+- IntelliJ Idea 14
 
 It might work with other setups after slight adjustments, but that is not tested. Pull requests welcome!
 
@@ -25,6 +25,7 @@ Open the directory in Idea.
 - Hamcrest 1.3
 - AssertJ 1.7.1
 - Lambda Behave 0.3
+- Google Truth 0.25
 
 # Production Libraries Available from the Get-Go
 - Lombok 1.16.2
