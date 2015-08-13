@@ -23,11 +23,11 @@ Open the directory in Idea.
 - JUnit 4.12
 - Mockito 1.10.19
 - Hamcrest 1.3
-- AssertJ 1.7.1
-- Lambda Behave 0.3
-- Google Truth 0.25
+- AssertJ 3.1.0
+- Lambda Behave 0.4
+- Google Truth 0.27
 
 # Production Libraries Available from the Get-Go
-- Lombok 1.16.2
+- Lombok 1.16.4
 - Apache Commons Lang 3.3.2
 - Guava 18.0
