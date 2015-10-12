@@ -11,9 +11,11 @@ A blank project, ready to start immediately. Useful for katas or experiments to 
 It might work with other setups after slight adjustments, but that is not tested. Pull requests welcome!
 
 # Installation
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/Egga/java-blank-gradle/master/clone.sh)"
+
+## Automatic
+`sh -c "$(curl -fsSL https://raw.githubusercontent.com/Egga/java-blank-gradle/master/clone.sh)"`
     
-or do it manually
+## Manual
     
     git clone https://github.com/Egga/java-blank-gradle
     cd java-blank-gradle
