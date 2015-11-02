@@ -21,6 +21,7 @@ dependencies {
             'org.assertj:assertj-core:3.1.0',
             'org.mockito:mockito-all:1.10.19',
             'com.insightfullogic:lambda-behave:0.4',
-            'com.google.truth:truth:0.27'
+            'com.google.truth:truth:0.27',
+            'org.jmockit:jmockit:1.20',
     )
 }
