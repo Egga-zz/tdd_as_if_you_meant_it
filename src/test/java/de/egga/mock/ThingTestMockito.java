@@ -1,7 +1,5 @@
 package de.egga.mock;
 
-import de.egga.mock.Repository;
-import de.egga.mock.Service;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -16,21 +14,21 @@ import static org.mockito.Mockito.when;
 public class ThingTestMockito {
 
     @Mock
-    Repository repository;
+    MessageQueue messageQueue;
 
     @InjectMocks
-    Service service;
+    Application application;
 
     @Test
     public void it_should_collaborate() {
-        when(repository.fetch()).thenReturn("Fetched value");
-        String fetched = service.fetch();
+        when(messageQueue.receive()).thenReturn("Fetched value");
+        String fetched = application.receive();
         assertThat(fetched).isEqualTo("Fetched value");
     }
 
     @Test
     public void it_should_verify() {
-        service.persist("some value");
-        verify(repository).persist("some value");
+        application.send("some value");
+        verify(messageQueue).send("some value");
     }
 }
