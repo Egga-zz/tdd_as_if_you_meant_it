@@ -14,5 +14,5 @@ fi
 
 
 git clone https://github.com/Egga/$REPO_NAME $TARGET
-cd $REPO_NAME
+cd $TARGET
 ./gradlew idea
