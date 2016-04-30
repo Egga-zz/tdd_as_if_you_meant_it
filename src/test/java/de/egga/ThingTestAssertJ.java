@@ -13,6 +13,10 @@ public class ThingTestAssertJ {
         return numberOfNeighbors <= 1 ? DEAD : null;
     }
 
+    private String livingCellWillBeDeadWith2(int numberOfNeighbors) {
+        return numberOfNeighbors >= 4 ? DEAD : null;
+    }
+
     private String livingCellWillBeAliveWith(int numberOfNeighbors) {
         return numberOfNeighbors == 2 || numberOfNeighbors == 3 ? ALIVE : null;
     }
@@ -34,7 +38,14 @@ public class ThingTestAssertJ {
     @Test
     public void cell_should_die_with_four_neighbors() {
         int numberOfNeighbors = 4;
-        String newState = numberOfNeighbors >= 4 ? DEAD : null;
+        String newState = livingCellWillBeDeadWith2(numberOfNeighbors);
+        assertThat(newState).isEqualTo(DEAD);
+    }
+
+    @Test
+    public void cell_should_die_with_five_neighbors() {
+        int numberOfNeighbors = 5;
+        String newState = livingCellWillBeDeadWith2(numberOfNeighbors);
         assertThat(newState).isEqualTo(DEAD);
     }
 
