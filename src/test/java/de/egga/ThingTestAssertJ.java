@@ -14,7 +14,7 @@ public class ThingTestAssertJ {
     }
 
     private String livingCellWillBeAliveWith(int numberOfNeighbors) {
-        return numberOfNeighbors == 2 || numberOfNeighbors == 3 ? ALIVE : null;
+        return numberOfNeighbors <= 1 || numberOfNeighbors >= 4 ? null : ALIVE;
     }
 
     @Test
