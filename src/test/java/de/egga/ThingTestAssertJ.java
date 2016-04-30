@@ -25,4 +25,11 @@ public class ThingTestAssertJ {
         String newState = newCellStateFor(numberOfNeighbors);
         assertThat(newState).isEqualTo(DEAD);
     }
+
+    @Test
+    public void cell_should_live_with_three_neighbors() {
+        int numberOfNeighbors = 3;
+        String newState = numberOfNeighbors == 3 ? "alive" : null;
+        assertThat(newState).isEqualTo("alive");
+    }
 }
