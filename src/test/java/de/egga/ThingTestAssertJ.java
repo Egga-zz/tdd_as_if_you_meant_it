@@ -9,53 +9,49 @@ public class ThingTestAssertJ {
     public static final String DEAD = "dead";
     public static final String ALIVE = "alive";
 
-    private String livingCellWillBeDeadWith(int numberOfNeighbors) {
-        return numberOfNeighbors <= 1 || numberOfNeighbors >= 4 ? DEAD : null;
-    }
-
-    private String livingCellWillBeAliveWith(int numberOfNeighbors) {
-        return numberOfNeighbors <= 1 || numberOfNeighbors >= 4 ? null : ALIVE;
+    private String livingCellWillBe(int numberOfNeighbors) {
+        return numberOfNeighbors <= 1 || numberOfNeighbors >= 4 ? DEAD : ALIVE;
     }
 
     @Test
     public void cell_should_die_with_no_neighbors() {
         int numberOfNeighbors = 0;
-        String newState = livingCellWillBeDeadWith(numberOfNeighbors);
+        String newState = livingCellWillBe(numberOfNeighbors);
         assertThat(newState).isEqualTo(DEAD);
     }
 
     @Test
     public void cell_should_die_with_only_one_neighbor() {
         int numberOfNeighbors = 1;
-        String newState = livingCellWillBeDeadWith(numberOfNeighbors);
+        String newState = livingCellWillBe(numberOfNeighbors);
         assertThat(newState).isEqualTo(DEAD);
     }
 
     @Test
     public void cell_should_die_with_four_neighbors() {
         int numberOfNeighbors = 4;
-        String newState = livingCellWillBeDeadWith(numberOfNeighbors);
+        String newState = livingCellWillBe(numberOfNeighbors);
         assertThat(newState).isEqualTo(DEAD);
     }
 
     @Test
     public void cell_should_die_with_five_neighbors() {
         int numberOfNeighbors = 5;
-        String newState = livingCellWillBeDeadWith(numberOfNeighbors);
+        String newState = livingCellWillBe(numberOfNeighbors);
         assertThat(newState).isEqualTo(DEAD);
     }
 
     @Test
     public void cell_should_live_with_two_neighbors() {
         int numberOfNeighbors = 2;
-        String newState = livingCellWillBeAliveWith(numberOfNeighbors);
+        String newState = livingCellWillBe(numberOfNeighbors);
         assertThat(newState).isEqualTo(ALIVE);
     }
 
     @Test
     public void cell_should_live_with_three_neighbors() {
         int numberOfNeighbors = 3;
-        String newState = livingCellWillBeAliveWith(numberOfNeighbors);
+        String newState = livingCellWillBe(numberOfNeighbors);
         assertThat(newState).isEqualTo(ALIVE);
     }
 }
