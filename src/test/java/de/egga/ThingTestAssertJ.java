@@ -6,17 +6,23 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class ThingTestAssertJ {
 
+    public static final String DEAD = "dead";
+
+    private String newCellStateFor(int numberOfNeighbors) {
+        return numberOfNeighbors == 1 || numberOfNeighbors == 2 ? DEAD : null;
+    }
+
     @Test
     public void cell_should_die_with_only_one_neighbor() {
         int numberOfNeighbors = 1;
-        String newState = numberOfNeighbors == 1 || numberOfNeighbors == 2 ? "dead" : null;
-        assertThat(newState).isEqualTo("dead");
+        String newState = newCellStateFor(numberOfNeighbors);
+        assertThat(newState).isEqualTo(DEAD);
     }
 
     @Test
     public void cell_should_die_with_only_two_neighbors() {
         int numberOfNeighbors = 2;
-        String newState = numberOfNeighbors == 1 || numberOfNeighbors == 2 ? "dead" : null;
-        assertThat(newState).isEqualTo("dead");
+        String newState = newCellStateFor(numberOfNeighbors);
+        assertThat(newState).isEqualTo(DEAD);
     }
 }
