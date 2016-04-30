@@ -2,7 +2,9 @@ package de.egga;
 
 import org.junit.Test;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.function.Predicate;
 
 import static java.util.Arrays.asList;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -72,13 +74,12 @@ public class ThingTestAssertJ {
 
     //---------------- counting neighbours
 
-    private int countLiving(List<String> strings) {
-        int neighboursOf00 = 0;
-        for (String cell : strings) {
-            if (cell == ALIVE) neighboursOf00++;
-        }
-        return neighboursOf00;
+    private int countLiving(List<String> cells) {
+        Predicate<String> isAlive = c -> c.equals(ALIVE);
+        return (int) cells.stream().filter(isAlive).count();
     }
+
+    private static final String anyCell = "cell is irrelevant";
 
     @Test
     public void leftUpperCellWith2AliveNeighboursHasCount2() {
@@ -89,7 +90,6 @@ public class ThingTestAssertJ {
         assertThat(numberOfLivingNeighbors).isEqualTo(2);
     }
 
-
     @Test
     public void leftUpperCellWith3AliveNeighboursHasCount3() {
         List<String> neighbors = asList(ALIVE, ALIVE, ALIVE);
@@ -97,5 +97,18 @@ public class ThingTestAssertJ {
         int numberOfLivingNeighbors = countLiving(neighbors);
 
         assertThat(numberOfLivingNeighbors).isEqualTo(3);
+    }
+
+    @Test
+    public void leftUpperCellHas3Neighbours() {
+        String cell01 = anyCell;
+        String cell10 = anyCell;
+        String cell11 = anyCell;
+
+        List<String> neighbours = Arrays.asList(cell01, cell10, cell11);
+
+        assertThat(cell01).isIn(neighbours);
+        assertThat(cell10).isIn(neighbours);
+        assertThat(cell11).isIn(neighbours);
     }
 }
