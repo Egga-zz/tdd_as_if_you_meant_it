@@ -86,4 +86,17 @@ public class ThingTestAssertJ {
         // NOTE Egga would shrink the test method to three lines: AAA
         // Peter wants to wait for evolution to take action.
     }
+    @Test
+    public void leftUpperCellWith3AliveNeighboursHasCount3() {
+        String cellAt01 = ALIVE;
+        String cellAt10 = ALIVE;
+        String cellAt11 = ALIVE;
+
+        int neighboursOf00 = 0;
+        for (String cell : asList(cellAt01, cellAt10,cellAt11)) {
+            if (cell == ALIVE) neighboursOf00++;
+        }
+
+        assertThat(neighboursOf00).isEqualTo(3);
+    }
 }
