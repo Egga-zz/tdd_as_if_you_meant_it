@@ -2,6 +2,7 @@ package de.egga;
 
 import org.junit.Test;
 
+import static java.util.Arrays.asList;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class ThingTestAssertJ {
@@ -76,10 +77,13 @@ public class ThingTestAssertJ {
         String cellAt11 = DEAD;
 
         int neighboursOf00 = 0;
-        if (cellAt01 == ALIVE) neighboursOf00++;
-        if (cellAt10 == ALIVE) neighboursOf00++;
-        if (cellAt11 == ALIVE) neighboursOf00++;
+        for (String cell : asList(cellAt01, cellAt10,cellAt11)) {
+            if (cell == ALIVE) neighboursOf00++;
+        }
 
         assertThat(neighboursOf00).isEqualTo(2);
+
+        // NOTE Egga would shrink the test method to three lines: AAA
+        // Peter wants to wait for evolution to take action.
     }
 }
