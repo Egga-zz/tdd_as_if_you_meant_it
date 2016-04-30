@@ -2,7 +2,6 @@ package de.egga;
 
 import org.junit.Test;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.function.Predicate;
 
@@ -102,13 +101,15 @@ public class ThingTestAssertJ {
     @Test
     public void leftUpperCellHas3Neighbours() {
         String cell01 = anyCell;
-        String cell10 = anyCell;
-        String cell11 = anyCell;
+        String cell10 = aDifferentCell;
+        String cell11 = anotherCell;
 
-        List<String> neighbours = Arrays.asList(cell01, cell10, cell11);
+        List<String> neighbours = asList(cell01, cell10, cell11);
 
+        assertThat(neighbours).contains(cell01, cell10, cell11);
         assertThat(cell01).isIn(neighbours);
         assertThat(cell10).isIn(neighbours);
         assertThat(cell11).isIn(neighbours);
     }
+
 }
