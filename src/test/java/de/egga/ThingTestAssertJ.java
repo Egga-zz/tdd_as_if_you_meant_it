@@ -66,4 +66,20 @@ public class ThingTestAssertJ {
         String newState = deadCellWillBe(numberOfNeighbors);
         assertThat(newState).isEqualTo(ALIVE);
     }
+
+    //---------------- counting neighbours
+
+    @Test
+    public void leftUpperCellWith2AliveNeighboursHasCount2() {
+        String cellAt01 = ALIVE;
+        String cellAt10 = ALIVE;
+        String cellAt11 = DEAD;
+
+        int neighboursOf00 = 0;
+        if (cellAt01 == ALIVE) neighboursOf00++;
+        if (cellAt10 == ALIVE) neighboursOf00++;
+        if (cellAt11 == ALIVE) neighboursOf00++;
+
+        assertThat(neighboursOf00).isEqualTo(2);
+    }
 }
