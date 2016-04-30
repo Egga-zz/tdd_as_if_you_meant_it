@@ -2,6 +2,8 @@ package de.egga;
 
 import org.junit.Test;
 
+import java.util.List;
+
 import static java.util.Arrays.asList;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -70,33 +72,30 @@ public class ThingTestAssertJ {
 
     //---------------- counting neighbours
 
+    private int countLiving(List<String> strings) {
+        int neighboursOf00 = 0;
+        for (String cell : strings) {
+            if (cell == ALIVE) neighboursOf00++;
+        }
+        return neighboursOf00;
+    }
+
     @Test
     public void leftUpperCellWith2AliveNeighboursHasCount2() {
-        String cellAt01 = ALIVE;
-        String cellAt10 = ALIVE;
-        String cellAt11 = DEAD;
+        List<String> neighbors = asList(ALIVE, ALIVE, DEAD);
 
-        int neighboursOf00 = 0;
-        for (String cell : asList(cellAt01, cellAt10,cellAt11)) {
-            if (cell == ALIVE) neighboursOf00++;
-        }
+        int numberOfLivingNeighbors = countLiving(neighbors);
 
-        assertThat(neighboursOf00).isEqualTo(2);
-
-        // NOTE Egga would shrink the test method to three lines: AAA
-        // Peter wants to wait for evolution to take action.
+        assertThat(numberOfLivingNeighbors).isEqualTo(2);
     }
+
+
     @Test
     public void leftUpperCellWith3AliveNeighboursHasCount3() {
-        String cellAt01 = ALIVE;
-        String cellAt10 = ALIVE;
-        String cellAt11 = ALIVE;
+        List<String> neighbors = asList(ALIVE, ALIVE, ALIVE);
 
-        int neighboursOf00 = 0;
-        for (String cell : asList(cellAt01, cellAt10,cellAt11)) {
-            if (cell == ALIVE) neighboursOf00++;
-        }
+        int numberOfLivingNeighbors = countLiving(neighbors);
 
-        assertThat(neighboursOf00).isEqualTo(3);
+        assertThat(numberOfLivingNeighbors).isEqualTo(3);
     }
 }
