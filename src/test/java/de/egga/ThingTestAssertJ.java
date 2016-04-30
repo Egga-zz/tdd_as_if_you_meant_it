@@ -9,19 +9,19 @@ public class ThingTestAssertJ {
     public static final String DEAD = "dead";
 
     private String newCellStateFor(int numberOfNeighbors) {
-        return numberOfNeighbors == 1 || numberOfNeighbors == 2 ? DEAD : null;
+        return numberOfNeighbors == 0 || numberOfNeighbors == 1 ? DEAD : null;
     }
 
     @Test
-    public void cell_should_die_with_only_one_neighbor() {
-        int numberOfNeighbors = 1;
+    public void cell_should_die_with_no_neighbors() {
+        int numberOfNeighbors = 0;
         String newState = newCellStateFor(numberOfNeighbors);
         assertThat(newState).isEqualTo(DEAD);
     }
 
     @Test
-    public void cell_should_die_with_only_two_neighbors() {
-        int numberOfNeighbors = 2;
+    public void cell_should_die_with_only_one_neighbor() {
+        int numberOfNeighbors = 1;
         String newState = newCellStateFor(numberOfNeighbors);
         assertThat(newState).isEqualTo(DEAD);
     }
